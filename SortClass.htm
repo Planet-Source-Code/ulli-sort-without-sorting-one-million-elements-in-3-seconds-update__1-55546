@@ -1,0 +1,998 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./SortClass-Dateien/filelist.xml">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Ulli</o:Author>
+  <o:LastAuthor>Ulli</o:LastAuthor>
+  <o:Revision>17</o:Revision>
+  <o:Created>2004-08-15T08:17:00Z</o:Created>
+  <o:LastSaved>2004-08-15T10:57:00Z</o:LastSaved>
+  <o:Pages>5</o:Pages>
+  <o:Words>1133</o:Words>
+  <o:Characters>6460</o:Characters>
+  <o:Company>UMGEDV GmbH</o:Company>
+  <o:Lines>53</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>7933</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:HyphenationZone>21</w:HyphenationZone>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Standard;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	mso-ansi-language:EN-GB;}
+h2
+	{mso-style-next:Standard;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:EN-GB;}
+h3
+	{mso-style-next:Standard;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:EN-GB;
+	text-decoration:underline;
+	text-underline:single;}
+h4
+	{mso-style-next:Standard;
+	margin-top:0cm;
+	margin-right:1.15pt;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:FR;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:0cm;
+	margin-right:1.15pt;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-GB;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 64.3pt 2.0cm 70.85pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=DE style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<h3 style='margin-right:1.15pt;tab-stops:459.0pt'><span lang=EN-GB>Overview</span></h3>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>This <b><i>Sort</i></b>-Class can be used to
+retrieve the elements in a one-dimensional table of strings in either ascending
+or descending sequence. The table itself is not altered in any way by this
+process, rather pointers into the table are returned which point to the
+elements in the table in the requested order. The range of subsripts or indexes
+(dimension) for the table may unbiased (1 to n) or may be biased by any amount
+but must not include zero (see <b><i>LowBound</i></b> and <b><i>HighBound</i></b>
+property). The <b><i>Sort</i></b> is stable, i.e. equal keys are returned in
+their original (positional) sequence. This feature can be used to sort a table
+on more than one key progressing from the least significant to the most
+significant key.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>An </span><b><span lang=EN-GB style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+EN-GB'>ID</span></b><span lang=EN-GB style='mso-ansi-language:EN-GB'> can be
+assigned to the <b><i>SortTable</i></b> method and the <b><i>SortIndirect</i></b>
+method, so that the application can determine during the <b><i>NextPointer</i></b>
+event which <b><i>Sort</i></b> method is being executed.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Tests on a 1800 MHz Athlon processor have shown
+that the <b><i>Sort</i></b> can fire the <b><i>NextPointer</i></b> Event every
+2.5 microseconds average<span style="mso-spacerun: yes">  </span>(sorting on a
+five byte random key) when the<span style="mso-spacerun: yes">  </span>called
+event routine itself executes no code, sorting 100,000 elements in under 0.3
+seconds. The speed varies only very slightly with the number of elements to be
+sorted, so <u>one million</u> elements take about <u>three seconds</u>. Any
+special presorting has no measurable effect on speed (Quicksort by contrast is
+almost killed by a presorted sequence).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The algorithm used in this sort builds linked
+lists and then linked sublists within lists recursively progressing until the
+final list structure represents the sorted result.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The <b><i>Sort</i></b> will temporarily
+allocate memory, the size being dependent on the amount of data to be sorted
+and the <b><i>KeySize</i></b> (four bytes per element plus <b><i>KeySize</i></b>
+kilobytes). Also some stack must be available and the amount depends on the key
+value distribution.<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><u><span lang=EN-GB>Properties, Methods and
+Events<o:p></o:p></span></u></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB style='font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></h1>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>Alphabet Property</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Sets / returns the collating sequence for the
+Sort. Characters not in <b><i>Alphabet</i></b> are placed in their native
+collating sequence after those in <b><i>Alphabet</i></b>. Interacts with the <b><i>KeyTranslation</i></b>
+property.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h2 style='margin-right:1.15pt'><span lang=EN-GB>Syntax</span></h2>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Sort.Alphabet = value As String<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h2 style='margin-right:1.15pt'><span lang=EN-GB>Remarks</span></h2>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>This property governs the collating sequence
+for the Sort. It overrides and is overridden by the <b><i>KeyTranslation</i></b>
+property..<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>String<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>HighBound Property</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Sets / returns the upper boundary of the sort
+range.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Sort.HighBound = value As Long<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The <b><i>LowBound</i></b> property and the <b><i>HighBound</i></b>
+property must both be negative or both be positive.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Long<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>KeyPosition Property</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Sets / returns the starting byte position for
+the sort key<span style="mso-spacerun: yes">  </span>(counting from 1).<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Sort.KeyPosition = value As Long<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>When <b><i>RightToLeft</i></b> is False then <b><i>KeyPosition</i></b>
++ <b><i>KeySize</i></b> - 1 must not be greater than the table element size if
+that part of the key is needed to determine uniqueness or sequence if the <b><i>PartialKeys</i></b>
+property is set to </span><span lang=EN-GB style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>NotAllowed</span><span
+lang=EN-GB style='mso-ansi-language:EN-GB'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>When <b><i>RightToLeft</i></b> is True then <b><i>KeyPosition</i></b>
+- <b><i>KeySize</i></b><span style="mso-spacerun: yes">  </span>must not be
+less than zero if that part of the key is needed to determine uniqueness or
+sequence if the <b><i>PartialKeys</i></b> property is set to </span><b><span
+lang=EN-GB style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>NotAllowed</span></b><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>.<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Long<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>KeySize Property</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Sets / returns the length of the sort key in
+bytes.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Sort.KeySize = value As Long<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><i><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>KeySize</span></i></b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'> must not be less than 1.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Long<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><a name="_Ref80337330"><span lang=EN-GB>KeyTranslation
+Property</span></a></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Used to perform a sort key translation.<span
+style="mso-spacerun: yes">  </span>Interacts with the <b><i>Alphabet</i></b>
+property.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<span style="mso-spacerun: yes">    
+</span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Sort.KeyTranslation = value As String<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<span style="mso-spacerun: yes">   
+</span><o:p></o:p></span></b></p>
+
+<p class=MsoBodyText><span lang=EN-GB>The Ascii value + 1 of each byte in the
+original keys is used to address a byte in this string. The byte thus found is
+then (for comparison and sorting purposes) substituted for the original byte.
+This property string can therefore only be 256 or zero bytes long, the latter
+being the value to switch key translation off. The following code fragment is
+used internally to achieve key translation:</span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>SortKey_Character = Mid$(KeyTranslation_Character,
+Asc(OriginalKey_Character) + 1, 1)<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Therefore this property must contain a string
+of 256 bytes. This property overrides and is overridden by the <b><i>Alphabet</i></b>
+property.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>String<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>LowBound Property</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Sets / returns the lower boundary of the sort
+range.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Sort.LowBound = value As Long<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<span style="mso-spacerun: yes">   
+</span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The <b><i>LowBound</i></b> property and the <b><i>HighBound</i></b>
+property must both be negative or both be positive and within the table bounds
+and <b><i>HighBound</i></b> must not be less than <b><i>LowBound</i></b>. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Example<span style="mso-spacerun: yes">  
+</span><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Assuming the following table definition:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>Dim
+Table(-20 To 20) <o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='font-family:"Courier New";mso-ansi-language:EN-GB'><span
+style='mso-tab-count:1'>     </span></span><b><u><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Okay</span></u></b><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>   </span><span
+style='mso-tab-count:2'>                        </span><span style='mso-tab-count:
+1'>            </span><u>Rejected</u><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>LowBound =
+1<span style='mso-tab-count:1'>     </span><span style='mso-tab-count:1'>      </span>LowBound
+= -10<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>HighBound =
+10<span style='mso-tab-count:1'>   </span><span style='mso-tab-count:1'>      </span>HighBound
+= 10<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>LowBound =
+-10 <span style='mso-tab-count:1'>  </span><span style='mso-tab-count:1'>      </span>LowBound
+= 10<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>HighBound =
+-2<span style='mso-tab-count:1'>   </span><span style='mso-tab-count:1'>      </span>HighBound
+= 5<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span><span
+style="mso-spacerun: yes">              </span><span style='mso-tab-count:1'>      </span><span
+style='mso-tab-count:1'>      </span>LowBound = 1<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span><span
+style="mso-spacerun: yes">              </span><span style='mso-tab-count:1'>      </span><span
+style='mso-tab-count:1'>      </span>HighBound = 30<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Long<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>NextPointer Event</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Fired when the next element in sort sequence
+has been determined.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Private Sub Sort_NextPointer(ByVal SortId As Long,
+ByVal Pointer As Long, Cancel As Boolean)<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>This event is fired once for each element in
+the sorted range. The </span><b><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>Pointer</span></b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> points to the next element in
+either ascending or descending key sequence depending on the setting of the <b><i>SortDirection</i></b>
+property.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The </span><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;mso-ansi-language:EN-GB'>Cancel</span></b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> argument may be set to </span><b><span
+lang=EN-GB style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>True</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> at any time to terminate a Sort prematurely.<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>PartialKeys Property</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Defines the ordinal position of missing
+characters in partial keys.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Sort.PartialKeys = PartialKeys<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The <b><i>Sort</i></b> examines the keys byte
+by byte and whenever a byte required to determine uniqueness or sequence is not
+contained within the sort-element then this property is referred to and governs
+the <b><i>Sort</i></b>'s behavior. If uniqueness or sequence can be determined
+from a partial key that is contained within a sort-element then this property
+is not used.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Example<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>With a <b><i>KeyPosition</i></b> = 1 and a <b><i>KeySize</i></b>
+= 3 assuming the following original sequence:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>Original
+Sequence <span style='mso-tab-count:1'>      </span>GreaterFullKeys<span
+style='mso-tab-count:1'>  </span><span style='mso-tab-count:1'>      </span>LessFullKeys<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span><span
+style="mso-spacerun: yes">                  </span><span style='mso-tab-count:
+1'>      </span>produces<span style="mso-spacerun: yes">    </span><span
+style='mso-tab-count:1'>     </span><span style='mso-tab-count:1'>      </span>produces<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>A<span
+style='mso-tab-count:1'>     </span><span style='mso-tab-count:2'>            </span><span
+style='mso-tab-count:1'>      </span>AA<span style='mso-tab-count:1'>    </span><span
+style='mso-tab-count:2'>            </span><span style='mso-tab-count:1'>      </span>A<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>AC<span
+style='mso-tab-count:1'>    </span><span style='mso-tab-count:2'>            </span><span
+style='mso-tab-count:1'>      </span>AC<span style='mso-tab-count:1'>    </span><span
+style='mso-tab-count:2'>            </span><span style='mso-tab-count:1'>      </span>AA<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>BB<span
+style='mso-tab-count:1'>    </span><span style='mso-tab-count:2'>            </span><span
+style='mso-tab-count:1'>      </span>A<span style='mso-tab-count:1'>     </span><span
+style='mso-tab-count:2'>            </span><span style='mso-tab-count:1'>      </span>AC<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>BBC<span
+style='mso-tab-count:1'>   </span><span style='mso-tab-count:2'>            </span><span
+style='mso-tab-count:1'>      </span>BBB<span style='mso-tab-count:1'>   </span><span
+style='mso-tab-count:2'>            </span><span style='mso-tab-count:1'>      </span>BB<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>BBB<span
+style='mso-tab-count:1'>   </span><span style='mso-tab-count:2'>            </span><span
+style='mso-tab-count:1'>      </span>BBC<span style='mso-tab-count:1'>   </span><span
+style='mso-tab-count:2'>            </span><span style='mso-tab-count:1'>      </span>BBB<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'><span style='mso-tab-count:1'>      </span>AA<span
+style='mso-tab-count:1'>    </span><span style='mso-tab-count:2'>            </span><span
+style='mso-tab-count:1'>      </span>BB<span style='mso-tab-count:1'>    </span><span
+style='mso-tab-count:2'>            </span><span style='mso-tab-count:1'>      </span>BBC<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>NotAllowed</span></b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'> will raise an error whenever a required
+key-byte is not contained within a sort-element. This would occur in the above
+example while trying to determine the sequence of A and AA or BB and BBB resp.
+but not with AA and AC because in this case the sequence can be determined
+without examining the missing third byte.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>PartialKeys (Enumeration)<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>QueryKey Event</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Fired when a key is required during <b><i>SortIndirect</i></b>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Private Sub Sort_QueryKey(ByVal SortId As Long, ByVal
+Pointer As Long, Key As String)<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The key of the element pointed to by </span><b><span
+lang=EN-GB style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Pointer</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> should be extracted and placed in the </span><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Key</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'> argument. <b><i>KeyPosition</i></b>, <b><i>KeySize</i></b> and <b><i>RightToLeft</i></b>
+are then applied internally to the </span><b><span lang=EN-GB style='font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-ansi-language:
+EN-GB'>Key</span></b><span lang=EN-GB style='mso-ansi-language:EN-GB'> argument
+to determine the exact position and length of the key.<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>RightToLeft Property</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Defines whether the keys are evaluated from
+right to left end.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Sort.RightToLeft = {True | False}<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Normally the key defined by <b><i>KeySize</i></b>
+and <b><i>KeyPosition</i></b> is evaluated from left to right; if however this
+property is set to </span><b><span lang=EN-GB style='font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:"Courier New";mso-ansi-language:EN-GB'>True</span></b><span
+lang=EN-GB style='mso-ansi-language:EN-GB'> then the keys are compared starting
+at the right hand end.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Boolean<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>SortDirection Property</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Sets / returns the requested sort sequence.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<h4><span lang=FR>Syntax</span></h4>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=FR
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:FR'>Sort.SortDirection = SortDirection<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=FR
+style='mso-ansi-language:FR'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>The Sort is stable, i.e. elements with equal
+keys are pointed to (during the <b><i>NextPointer</i></b> event) in their
+original (positional) sequence.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Data Type<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>SortDirection (Enumeration)<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>SortIndirect Method</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Performs the Sort and fires <b><i>NextPointer</i></b>
+events. Keys are queried via <b><i>QueryKey</i></b> events.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Number = Sort.SortIndirect(SortId) As Long<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>This function returns the number of distinct
+keys that have been sorted. <o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='margin-right:1.15pt;border:none;mso-border-bottom-alt:
+solid windowtext .75pt;padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span
+lang=EN-GB style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h1 style='margin-right:1.15pt'><span lang=EN-GB>SortTable Method</span></h1>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Performs the Sort and fires <b><i>NextPointer</i></b>
+events. Keys are taken from elements in the </span><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Table</span></b><span lang=EN-GB style='mso-ansi-language:
+EN-GB'>.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Syntax <o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:"Courier New";
+mso-ansi-language:EN-GB'>Number = Sort.SortTable(Table As OLEType8200, SortId)
+As Long<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><b><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>Remarks<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-right:1.15pt'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'>This function returns the number of distinct
+keys that have been sorted.<o:p></o:p></span></p>
+
+<div style='border:none;border-bottom:solid windowtext .75pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<p class=MsoNormal style='border:none;mso-border-bottom-alt:solid windowtext .75pt;
+padding:0cm;mso-padding-alt:0cm 0cm 1.0pt 0cm'><span lang=EN-GB
+style='mso-ansi-language:EN-GB'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
